@@ -22,9 +22,18 @@ const Home: React.FC = () => {
             to={user ? "/upload" : "/register"}
             className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:text-lg md:px-10"
           >
-            {user ? '开始创作' : '免费试用'}
+            {user ? '上传剪辑' : '免费试用'}
             <ArrowRight className="ml-2 w-5 h-5" />
           </Link>
+          {user && (
+            <Link
+              to="/generate"
+              className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 md:text-lg md:px-10"
+            >
+              AI 视频生成
+              <Wand2 className="ml-2 w-5 h-5" />
+            </Link>
+          )}
           {!user && (
             <Link
               to="/login"

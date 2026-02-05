@@ -13,6 +13,18 @@ class Settings(BaseSettings):
     DEEPSEEK_BASE_URL: str = os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com")
     GOOGLE_API_KEY: str = os.getenv("GOOGLE_API_KEY", "")
     
+    # Video Generation (1189.xin)
+    VIDEO_GEN_API_KEY: str = os.getenv("VIDEO_GEN_API_KEY", "")
+    VIDEO_GEN_HOST: str = os.getenv("VIDEO_GEN_HOST", "1189.xin")
+    VIDEO_GEN_MODEL: str = os.getenv("VIDEO_GEN_MODEL", "grok-video-3")
+    
+    def __init__(self, **data):
+        super().__init__(**data)
+        # Fallback if env loaded placeholder
+        # if not self.VIDEO_GEN_API_KEY or "请在此处填入" in self.VIDEO_GEN_API_KEY or "<" in self.VIDEO_GEN_API_KEY:
+        #    # Hardcoded fallback for debugging session
+        #    self.VIDEO_GEN_API_KEY = "sk-5ALssEeQg3Fn03jEBecEQRHO4SRTOPeSmmaXBrC6o97e3o0c"
+    
     UPLOAD_DIR: str = os.path.join(os.path.dirname(__file__), "uploads")
     OUTPUT_DIR: str = os.path.join(os.path.dirname(__file__), "outputs")
 

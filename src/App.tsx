@@ -10,6 +10,7 @@ import Register from './pages/Register';
 import Upload from './pages/Upload';
 import Edit from './pages/Edit';
 import Result from './pages/Result';
+import VideoGen from './pages/VideoGen';
 
 function App() {
   const { setUser, setIsLoading } = useAuthStore();
@@ -60,6 +61,14 @@ function App() {
             element={
               <PrivateRoute>
                 <Result />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/generate"
+            element={
+              <PrivateRoute>
+                <VideoGen />
               </PrivateRoute>
             }
           />

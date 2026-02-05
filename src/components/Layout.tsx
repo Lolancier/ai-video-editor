@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuthStore } from '../store/useStore';
 import { supabase } from '../lib/supabase';
-import { LogOut, User as UserIcon, Video, Home } from 'lucide-react';
+import { LogOut, User as UserIcon, Video, Home, Wand2 } from 'lucide-react';
 
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user, setUser } = useAuthStore();
@@ -41,6 +41,17 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
                 </Link>
                 {user && (
                   <>
+                    <Link
+                      to="/generate"
+                      className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
+                        isActive('/generate')
+                          ? 'border-blue-500 text-slate-900'
+                          : 'border-transparent text-slate-500 hover:border-slate-300 hover:text-slate-700'
+                      }`}
+                    >
+                      <Wand2 className="w-4 h-4 mr-2" />
+                      视频生成
+                    </Link>
                     <Link
                       to="/upload"
                       className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
